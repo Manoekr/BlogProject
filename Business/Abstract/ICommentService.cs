@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface ICategoryService
+    public interface ICommentService
     {
-        IDataResult<List<Category>> GetAll();
-        IResult Add(Category category);
-        IResult Update(Category category);
-        IResult Delete(Category category);
+        IDataResult<List<Comment>> GetAll();
+        IResult Add(Comment comment);
+        IResult Update(Comment comment);
+        IResult Delete(Comment comment);
     }
 }

@@ -15,5 +15,6 @@ namespace Business.Abstract
         IDataResult<Post> GetById(int postId);
         IResult Add(Post post);
         IResult Update(Post post);
+        IResult Delete(Post post);
     }
 }

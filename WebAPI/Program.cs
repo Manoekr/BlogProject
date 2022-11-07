@@ -13,10 +13,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IPostDal, EfPostDal>();
 builder.Services.AddSingleton<IPostService, PostManager>();
-builder.Services.AddSingleton<ITagDal, EfTagDal>();
-builder.Services.AddSingleton<ITagService, TagManager>();
 builder.Services.AddSingleton<ICategoryDal, EfCategoryDal>();
 builder.Services.AddSingleton<ICategoryService, CategoryManager>();
+builder.Services.AddSingleton<ICommentDal, EfCommentDal>();
+builder.Services.AddSingleton<ICommentService, CommentManager>();
 
 var app = builder.Build();
 

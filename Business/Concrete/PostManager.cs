@@ -25,6 +25,12 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        public IResult Delete(Post post)
+        {
+            _postDal.Delete(post);
+            return new SuccessResult();
+        }
+
         public IDataResult<List<Post>> GetAll()
         {
             return new SuccessDataResult<List<Post>>(_postDal.GetAll());

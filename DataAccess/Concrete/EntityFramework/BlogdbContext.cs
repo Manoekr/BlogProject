@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=RUBUSOFT-WEB\\SQLEXPRESS; Database=Blogdb; uid = ozgur; pwd = 123456;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-L7C204H; Database=Blogdb; Trusted_Connection=true");
         }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Category> Categories { get; set; }
