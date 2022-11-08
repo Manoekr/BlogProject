@@ -36,6 +36,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Post>> GetAll()
         {
+
             return new SuccessDataResult<List<Post>>(_postDal.GetAll());
         }
 

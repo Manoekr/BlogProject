@@ -35,6 +35,15 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-
+        [HttpDelete("delete")]
+        public IActionResult Delete(Comment comment)
+        {
+            var result = _commentService.Delete(comment);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

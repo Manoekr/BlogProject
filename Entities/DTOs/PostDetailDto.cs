@@ -10,6 +10,7 @@ namespace Entities.DTOs
     public class PostDetailDto:IDto
     {
         public int PostId { get; set; }
+        public string? ImagePath { get; set; }
         public string CategoryName { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }

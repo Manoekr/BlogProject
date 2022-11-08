@@ -28,6 +28,16 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
+            var result = _postService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("getalldetails")]
+        public IActionResult GetAllDetails()
+        {
             var result = _postService.GetPostDetails();
             if (result.Success)
             {
@@ -39,6 +49,17 @@ namespace WebAPI.Controllers
         public IActionResult GetById(int id)
         {
             var result = _postService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpDelete("delete")]
+        public IActionResult Delete(Post post)
+        {
+            var postDelete = _postService.GetById(post.PostId).Data;
+            var result = _postService.Delete(postDelete);
             if (result.Success)
             {
                 return Ok(result);

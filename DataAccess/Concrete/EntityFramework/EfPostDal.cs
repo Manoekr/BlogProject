@@ -20,9 +20,11 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from post in context.Posts
                              join category in context.Categories on post.CategoryId equals category.CategoryId
                              join comment in context.Comments on post.PostId equals comment.PostId
+                             join postimage in context.PostImages on post.PostId equals postimage.PostId
                              select new PostDetailDto
                              {
                                  PostId = post.PostId,
+                                 ImagePath = postimage.ImagePath,
                                  CategoryName = category.CategoryName,
                                  Title = post.Title,
                                  Content = post.Content,
