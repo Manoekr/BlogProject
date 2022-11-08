@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace Business.Abstract
         IResult Add(Post post);
         IResult Update(Post post);
         IResult Delete(Post post);
+        IDataResult<List<PostDetailDto>> GetPostDetails();
     }
 }

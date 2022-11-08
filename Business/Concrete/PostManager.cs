@@ -1,7 +1,10 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +21,7 @@ namespace Business.Concrete
         {
             _postDal = postDal;
         }
-
+        [ValidationAspect(typeof(PostValidator))]
         public IResult Add(Post post)
         {
             _postDal.Add(post);
@@ -44,6 +47,11 @@ namespace Business.Concrete
         public IDataResult<Post> GetById(int postId)
         {
             return new SuccessDataResult<Post>(_postDal.Get(p => p.PostId == postId));
+        }
+
+        public IDataResult<List<PostDetailDto>> GetPostDetails()
+        {
+            return new SuccessDataResult<List<PostDetailDto>>(_postDal.GetPostDetails());
         }
 
         public IResult Update(Post post)
