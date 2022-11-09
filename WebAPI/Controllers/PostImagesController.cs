@@ -7,11 +7,11 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostImageController : ControllerBase
+    public class PostImagesController : ControllerBase
     {
         IPostImageService _postImageService;
 
-        public PostImageController(IPostImageService postImageService)
+        public PostImagesController(IPostImageService postImageService)
         {
             _postImageService = postImageService;
         }

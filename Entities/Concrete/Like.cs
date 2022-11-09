@@ -11,6 +11,5 @@ namespace Entities.Concrete
     {
         public int LikeId { get; set; }
         public int PostId { get; set; }
-        public int LikeNumbers { get; set; }
     }
 }

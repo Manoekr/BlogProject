@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
@@ -25,18 +26,17 @@ namespace Business.Concrete
         public IResult Add(Post post)
         {
             _postDal.Add(post);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Added);
         }
 
         public IResult Delete(Post post)
         {
             _postDal.Delete(post);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Deleted);
         }
 
         public IDataResult<List<Post>> GetAll()
         {
-
             return new SuccessDataResult<List<Post>>(_postDal.GetAll());
         }
 
@@ -58,7 +58,7 @@ namespace Business.Concrete
         public IResult Update(Post post)
         {
             _postDal.Update(post);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Updated);
         }
     }
 }

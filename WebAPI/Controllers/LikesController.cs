@@ -7,48 +7,38 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostController : ControllerBase
+    public class LikesController : ControllerBase
     {
-        IPostService _postService;
+        ILikeService _likeService;
 
-        public PostController(IPostService postService)
+        public LikesController(ILikeService likeService)
         {
-            _postService = postService;
-        }
-        [HttpPost("add")]
-        public IActionResult Add(Post post)
-        {
-            var result = _postService.Add(post);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            _likeService = likeService;
         }
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _postService.GetAll();
+            var result = _likeService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-        [HttpGet("getalldetails")]
-        public IActionResult GetAllDetails()
+        [HttpPost("add")]
+        public IActionResult Add(Like like) 
         {
-            var result = _postService.GetPostDetails();
+            var result = _likeService.Add(like);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-        [HttpGet("getbyid")]
-        public IActionResult GetById(int id)
+        [HttpPost("update")]
+        public IActionResult Update(Like like)
         {
-            var result = _postService.GetById(id);
+            var result = _likeService.Update(like);
             if (result.Success)
             {
                 return Ok(result);
@@ -56,10 +46,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpDelete("delete")]
-        public IActionResult Delete(Post post)
+        public IActionResult Delete(Like like)
         {
-            var postDelete = _postService.GetById(post.PostId).Data;
-            var result = _postService.Delete(postDelete);
+            var likeDelete = _likeService.GetById(like.PostId).Data;
+            var result = _likeService.Delete(likeDelete);
             if (result.Success)
             {
                 return Ok(result);

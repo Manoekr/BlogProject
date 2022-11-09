@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -22,13 +23,13 @@ namespace Business.Concrete
         public IResult Add(Comment comment)
         {
             _commentDal.Add(comment);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Added);
         }
 
         public IResult Delete(Comment comment)
         {
             _commentDal.Delete(comment);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Deleted);
         }
 
         public IDataResult<List<Comment>> GetAll()
@@ -39,7 +40,7 @@ namespace Business.Concrete
         public IResult Update(Comment comment)
         {
             _commentDal.Update(comment);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Updated);
         }
     }
 }

@@ -36,14 +36,14 @@ namespace Business.Concrete
             postImage.PostId = postId;
             postImage.Date = DateTime.Now;
             _postImageDal.Add(postImage);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Added);
         }
 
         public IResult Delete(PostImage postImage)
         {
             _fileHelper.Delete(FilePath.ImagesPath + postImage.ImagePath);
             _postImageDal.Delete(postImage);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Deleted);
         }
 
         public IDataResult<List<PostImage>> GetAll()
@@ -65,7 +65,7 @@ namespace Business.Concrete
         {
             postImage.ImagePath = _fileHelper.Update(formFile, FilePath.ImagesPath + postImage.ImagePath, FilePath.ImagesPath);
             _postImageDal.Update(postImage);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Updated);
         }
         private IResult CheckIfPostImageLimit(int postId)
         {

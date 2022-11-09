@@ -7,11 +7,11 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CommentController : ControllerBase
+    public class CommentsController : ControllerBase
     {
         ICommentService _commentService;
 
-        public CommentController(ICommentService commentService)
+        public CommentsController(ICommentService commentService)
         {
             _commentService = commentService;
         }

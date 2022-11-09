@@ -27,7 +27,13 @@ namespace Business.DependencyResolvers.Autofac
             
             builder.RegisterType<EfCommentDal>().As<ICommentDal>().SingleInstance(); 
             builder.RegisterType<CommentManager>().As<ICommentService>().SingleInstance();
-            
+
+            builder.RegisterType<EfAboutDal>().As<IAboutDal>().SingleInstance();
+            builder.RegisterType<AboutManager>().As<IAboutService>().SingleInstance();
+
+            builder.RegisterType<EfLikeDal>().As<ILikeDal>().SingleInstance();
+            builder.RegisterType<LikeManager>().As<ILikeService>().SingleInstance();
+
             builder.RegisterType<FileHelper>().As<IFileHelper>().SingleInstance();
             builder.RegisterType<EfPostImageDal>().As<IPostImageDal>().SingleInstance();
             builder.RegisterType<PostImageManager>().As<IPostImageService>().SingleInstance();

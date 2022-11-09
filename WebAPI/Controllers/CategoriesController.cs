@@ -2,16 +2,17 @@
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
         ICategoryService _categoryService;
 
-        public CategoryController(ICategoryService categoryService)
+        public CategoriesController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
         }
@@ -38,7 +39,8 @@ namespace WebAPI.Controllers
         [HttpDelete("delete")]
         public IActionResult Delete(Category category)
         {
-            var result = _categoryService.Delete(category);
+            var categoryDelete = _categoryService.GetById(category.CategoryId).Data;
+            var result = _categoryService.Delete(categoryDelete);
             if (result.Success)
             {
                 return Ok(result);
