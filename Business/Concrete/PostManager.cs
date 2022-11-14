@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -23,6 +24,7 @@ namespace Business.Concrete
             _postDal = postDal;
         }
         [ValidationAspect(typeof(PostValidator))]
+        [SecuredOperation("post.add,admin")]
         public IResult Add(Post post)
         {
             _postDal.Add(post);

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface ILikeDal:IEntityRepository<Like>
+    public interface IContactDal:IEntityRepository<Contact>
     {
     }
 }

@@ -7,18 +7,18 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LikesController : ControllerBase
+    public class ContactsController : ControllerBase
     {
-        ILikeService _likeService;
+        IContactService _contactService;
 
-        public LikesController(ILikeService likeService)
+        public ContactsController(IContactService contactService)
         {
-            _likeService = likeService;
+            _contactService = contactService;
         }
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _likeService.GetAll();
+            var result = _contactService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -26,9 +26,9 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("add")]
-        public IActionResult Add(Like like) 
+        public IActionResult Add(Contact contact)
         {
-            var result = _likeService.Add(like);
+            var result = _contactService.Add(contact);
             if (result.Success)
             {
                 return Ok(result);
@@ -36,9 +36,9 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("update")]
-        public IActionResult Update(Like like)
+        public IActionResult Update(Contact contact)
         {
-            var result = _likeService.Update(like);
+            var result = _contactService.Update(contact);
             if (result.Success)
             {
                 return Ok(result);
@@ -46,10 +46,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpDelete("delete")]
-        public IActionResult Delete(Like like)
+        public IActionResult Delete(Contact contact)
         {
-            var likeDelete = _likeService.GetById(like.PostId).Data;
-            var result = _likeService.Delete(likeDelete);
+            var contactDelete = _contactService.GetById(contact.ContactId).Data;
+            var result = _contactService.Delete(contactDelete);
             if (result.Success)
             {
                 return Ok(result);

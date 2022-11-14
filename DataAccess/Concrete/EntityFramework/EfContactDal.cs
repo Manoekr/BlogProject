@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfLikeDal:EfEntityRepositoryBase<Like, BlogdbContext>, ILikeDal
+    public class EfContactDal:EfEntityRepositoryBase<Contact, BlogdbContext>, IContactDal
     {
     }
 }

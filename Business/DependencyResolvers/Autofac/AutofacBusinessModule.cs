@@ -31,8 +31,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfAboutDal>().As<IAboutDal>().SingleInstance();
             builder.RegisterType<AboutManager>().As<IAboutService>().SingleInstance();
 
-            builder.RegisterType<EfLikeDal>().As<ILikeDal>().SingleInstance();
-            builder.RegisterType<LikeManager>().As<ILikeService>().SingleInstance();
+            builder.RegisterType<EfContactDal>().As<IContactDal>().SingleInstance();
+            builder.RegisterType<ContactManager>().As<IContactService>().SingleInstance();
 
             builder.RegisterType<FileHelper>().As<IFileHelper>().SingleInstance();
             builder.RegisterType<EfPostImageDal>().As<IPostImageDal>().SingleInstance();

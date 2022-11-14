@@ -17,6 +17,8 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(p => p.Content).MinimumLength(10).WithMessage("10 karekterden az olamaz");
             RuleFor(p => p.Content).NotEmpty();
             RuleFor(p => p.Tag).Must(StartWithTag).WithMessage("Tag # ile başlamalıdır");
+            RuleFor(p => p.LikeNumber).Empty();
+            RuleFor(p => p.ViewNumber).Empty();
         }
         private bool StartWithTag(string arg)
         {

@@ -17,6 +17,8 @@ namespace Entities.DTOs
         public string Tag { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime UpdateDate { get; set; }
+        public int LikeNumber { get; set; }
+        public int ViewNumber { get; set; }
         public string CommentNameSurname { get; set; }
         public string CommentText { get; set; }
     }

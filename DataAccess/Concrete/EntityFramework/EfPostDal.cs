@@ -31,6 +31,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  Tag = post.Tag,
                                  CreateDate = post.CreateDate,
                                  UpdateDate = post.UpdateDate,
+                                 LikeNumber = post.LikeNumber,
+                                 ViewNumber = post.ViewNumber,
                                  CommentNameSurname = comment.CommentNameSurname,
                                  CommentText = comment.CommentText,
                              };
