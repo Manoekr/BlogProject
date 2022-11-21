@@ -35,16 +35,18 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfContactDal>().As<IContactDal>().SingleInstance();
             builder.RegisterType<ContactManager>().As<IContactService>().SingleInstance();
 
-            builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
-            builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
-
-            builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
-            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
-
-
             builder.RegisterType<FileHelper>().As<IFileHelper>().SingleInstance();
             builder.RegisterType<EfPostImageDal>().As<IPostImageDal>().SingleInstance();
             builder.RegisterType<PostImageManager>().As<IPostImageService>().SingleInstance();
+
+            builder.RegisterType<EfUserDal>().As<IUserDal>();
+            builder.RegisterType<UserManager>().As<IUserService>();
+
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+
+
+            
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
