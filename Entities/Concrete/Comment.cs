@@ -13,6 +13,5 @@ namespace Entities.Concrete
         public int PostId { get; set; }
         public string CommentNameSurname { get; set; }
         public string CommentText { get; set; }
-        
     }
 }

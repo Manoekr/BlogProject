@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Core.Utilities.Business;
 using Core.Utilities.Helper.FileHelper;
@@ -24,7 +25,7 @@ namespace Business.Concrete
             _postImageDal = postImageDal;
             _fileHelper = fileHelper;
         }
-
+        [SecuredOperation("admin")]
         public IResult Add(List<IFormFile> formFile, PostImage postImage, int postId)
         {
             IResult result = BusinessRules.Run(CheckIfPostImageLimit(postImage.PostId));

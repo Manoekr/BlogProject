@@ -14,7 +14,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-L7C204H; Database=Blogdb; Trusted_Connection=true;");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-3AR1L63; Database=Blogdb; Trusted_Connection=true;");
         }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Category> Categories { get; set; }

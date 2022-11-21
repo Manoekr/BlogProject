@@ -24,7 +24,7 @@ namespace Business.Concrete
             _postDal = postDal;
         }
         [ValidationAspect(typeof(PostValidator))]
-        [SecuredOperation("post.add,admin")]
+        [SecuredOperation("admin")]
         public IResult Add(Post post)
         {
             _postDal.Add(post);
