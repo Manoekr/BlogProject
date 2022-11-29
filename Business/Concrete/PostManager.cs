@@ -2,6 +2,7 @@
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -25,6 +26,7 @@ namespace Business.Concrete
         }
         [ValidationAspect(typeof(PostValidator))]
         [SecuredOperation("post.list,post.add,admin")]
+        [CacheRemoveAspect("IPostService.Get")]
         public IResult Add(Post post)
         {
             _postDal.Add(post);
@@ -36,7 +38,7 @@ namespace Business.Concrete
             _postDal.Delete(post);
             return new SuccessResult(Messages.Deleted);
         }
-
+        [CacheAspect]
         public IDataResult<List<Post>> GetAll()
         {
             return new SuccessDataResult<List<Post>>(_postDal.GetAll());
@@ -46,7 +48,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Post>>(_postDal.GetAll(p=>p.CategoryId==id));
         }
-
+        [CacheAspect]
         public IDataResult<Post> GetById(int postId)
         {
             return new SuccessDataResult<Post>(_postDal.Get(p => p.PostId == postId));
@@ -56,7 +58,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<PostDetailDto>>(_postDal.GetPostDetails());
         }
-
+        [CacheRemoveAspect("IPostService.Get")]
         public IResult Update(Post post)
         {
             _postDal.Update(post);
